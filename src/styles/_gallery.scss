@@ -1,0 +1,191 @@
+$buttonWidth: 50px;
+$primaryColor: #222222;
+$secondaryColor: rgba(168, 168, 168, .2);
+
+
+.gallery {
+    width: 60%;
+}
+
+#thumbsList {
+    overflow: hidden;
+    display: block;
+    margin: 0, 50px, 50px, 50px, 50px auto;
+    width: 90%;
+    max-width: 1000px;
+    padding: 20px;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        font-size: 0;
+        li {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            width: 33.3%;
+            height: 200px;
+             img {
+                position: relative;
+                display: block;
+                max-width: 100%;
+                transition: all 0.3s linear;
+                &:hover {
+                    -webkit-transform: scale(1.2); 
+                    -ms-transform: scale(1.2); 
+                    transform: scale(1.2); 
+                    transition: transform 0.5s ease, opacity 1s ease;
+                }
+             }
+        }
+    }
+}
+  
+#lightBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -o-transition: opacity .5s ease-in-out;
+    transition: opacity .5s ease-in-out;
+    overflow: hidden;
+    img {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left:0;
+        right:0;
+        bottom: 0;
+        max-height: 0%;
+        max-width: 0%;
+        box-shadow: 0px 0px 8px rgba(0,0,0,.3);
+        box-sizing: border-box;
+        
+        -webkit-transition: .5s ease-in-out;
+        -moz-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out;
+        transition: .5s ease-in-out;
+    }
+}
+  
+.lightBox-active {
+    display: block !important;
+    opacity: 1 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    transition: all 0.5s ease;
+}
+  
+#prevImg {
+    position: absolute;
+    top: 50%;
+    margin-top: -($buttonWidth/2);
+    width: $buttonWidth;
+    height: $buttonWidth;
+    cursor: pointer;
+    background-color: $secondaryColor;
+    transition: all 0.3s ease;
+    &:after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin: 8px;
+        margin-top: 13px;
+        margin-left: 20px;
+        border-left: 2px solid #FFF;
+        border-bottom: 2px solid #FFF;
+        transform: rotate(45deg);
+    }
+}
+#prevImg:hover, #nextImg:hover {
+    background-color: rgba(73, 73, 73, .8);
+    transition: all 0.3s ease;
+}
+  
+#nextImg {
+    @extend #prevImg;
+    right: 0;
+    &:after {
+        margin-left: 8px;
+        transform: rotate(225deg);
+    }
+}
+
+#closeLightbox-button {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(168, 168, 168, .2);;
+    width: $buttonWidth;
+    height: $buttonWidth;
+    transition: all 0.7s ease;
+    &:hover {
+        background-color: red;
+        transform: rotate(180deg);
+        transition: all 0.3s ease;
+    }
+    &:before {
+        content: '';
+        display: block;
+        position: relative;
+        width: 2px;
+        height: 25px;
+        background-color: white;
+        left: 23px;
+        top: 12px;
+        
+        -ms-transform: rotate(40deg); /* IE 9 */
+        -webkit-transform: rotate(40deg); /* Safari */
+        transform: rotate(40deg);
+    }
+    &:after {
+        content: '';
+        display: block;
+        position: relative;
+        width: 2px;
+        height: 25px;
+        background-color: white;
+        left: 23px;
+        top: -13px;
+        -ms-transform: rotate(-40deg); /* IE 9 */
+        -webkit-transform: rotate(-40deg); /* Safari */
+        transform: rotate(-40deg);
+    }
+}
+
+.active-image {
+    max-width: 90% !important;
+    max-height: 100% !important;
+    transition: all .5s ease !important;
+}
+  
+@media (max-width: 1500px) {
+    #thumbsList ul li {
+        height: 100%;
+    }
+}
+
+@media (max-width: 1000px) {
+    #thumbsList ul li {
+        position: relative;
+        width: 50%;
+    }
+}
+  
+@media (max-width: 680px) {
+    #thumbsList ul li {
+        position: relative;
+        width: 100%;
+    }
+}
+  
+  

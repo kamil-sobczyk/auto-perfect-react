@@ -1,0 +1,195 @@
+@mixin title-before-after {
+  height: 2px;
+  width: 400px;
+  position: absolute;
+  content: '';
+  background-color: #ffffff;
+}
+
+@mixin title-div-before-after {
+  width: 2px;
+  height: 300px;
+  position: absolute;
+  content: '';
+  background-color: #ffffff;
+}
+
+@mixin h2h4 {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+@mixin white-buttons {
+  font-weight: 700;
+  background-color: #ffffff;
+  padding: 5px 10px;
+  color: #000000;
+}
+
+@mixin transition {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.55s ease;
+  transition: all 0.55s ease;
+}
+
+@mixin display-more-button {
+  .more {
+    display: block;
+  }
+}
+
+.service-img {
+  *{
+    @include transition;
+  }
+  position: relative;
+  overflow: hidden;
+  margin: 20px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 10.5px;
+  background-color: #000000;
+  img {
+    max-width: 100%;
+    backface-visibility: hidden;
+    vertical-align: top;
+    opacity: 0.9;
+  }
+
+  &:before, &:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.55s ease;
+    transition: all 0.55s ease;
+  }
+  .title {
+    position: absolute;
+    top: 58%;
+    left: 25px;
+    padding: 5px 10px 10px;
+    &:before {
+      @include title-before-after;
+      top: 0;
+      left: 10px;
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+    &:after {
+      @include title-before-after;
+      bottom: 0;
+      right: 10px;
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+    div:before {
+      @include title-div-before-after;
+      top: 10px;
+      right: 0;
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+    }
+    div:after {
+      @include title-div-before-after;
+      bottom: 10px;
+      left: 0;
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+    h2 {
+      @include h2h4;
+      background: rgba(0, 0, 0, .7);
+      height: 20px;
+      padding: 5px 10px !important;
+      font-size: 1.5;
+    }
+    h4 {
+      @include h2h4;
+      @include white-buttons;
+      display: block;
+    }  
+  }
+}
+.more {
+  @include h2h4;
+  @include white-buttons;
+  width: 60px;
+  position: absolute;
+  bottom: 45px;
+  right: 35px;
+  display :none;
+}    
+figcaption {
+  position: absolute;
+  bottom: 42%;
+  left: 25px;
+  text-align: left;
+  opacity: 0;
+  padding: 5px 60px 5px 10px;
+  font-size: 0.8em;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  p {
+    margin: 0;
+  }
+}
+
+.service-img:hover img,
+.service-img.hover img {
+  zoom: 1;
+  filter: alpha(opacity=35);
+  -webkit-opacity: 0.35;
+  opacity: 0.35;
+
+  }
+.service-img:hover .title:before,
+.service-img.hover .title:before,
+.service-img:hover .title:after,
+.service-img.hover .title:after,
+.service-img:hover .title div:before,
+.service-img.hover .title div:before,
+.service-img:hover .title div:after,
+.service-img.hover .title div:after {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.service-img:hover .title:before,
+.service-img.hover .title:before,
+.service-img:hover .title:after,
+.service-img.hover .title:after {
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+.service-img:hover figcaption,
+.service-img.hover figcaption {
+  opacity: 1;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+@media (max-width: 490px) {
+    figcaption {
+      padding: 5px 20px 5px 10px;
+      font-size: 0.6em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  @include display-more-button;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  @include display-more-button;
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  @include display-more-button;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  @include display-more-button;
+}

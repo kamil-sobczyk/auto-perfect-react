@@ -1,0 +1,28 @@
+.navbar {
+    background: rgba(0, 128, 255, 0.7);
+}
+
+@media mobile and ( max-width: 1239px) {
+    .navbar-toggler {
+        background: rgba(255, 255, 255, 0.7);
+        width: 70px;
+        border: none;
+        border-radius: 10px 10px 0 0;
+        outline: none !important;
+        padding: 0 20px 0 0;
+    }
+
+    .navbar {
+        background: none;
+    }
+
+    .mr-auto {
+        background: rgba(255, 255, 255, 0.7);
+        width: 70px;
+        border-radius: 0 0 5px 5px;
+    }
+    
+    .nav-link {
+        color: black !important;
+    }
+}
