@@ -16,7 +16,7 @@ export default class Nav extends Component {
     };
   }
 
-  handleClick = i => {
+  handleClick(i) {
     const nav = this.state.nav;
     nav.forEach((e, index) => {
       if (index === i) {

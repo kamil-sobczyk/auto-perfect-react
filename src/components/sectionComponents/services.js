@@ -64,7 +64,7 @@ let moreButtons = [];
 
 export default class Services extends Component {
 
-  handleClickAndMouseEnter = figure => {
+  handleClickAndMouseEnter(figure) {
     for (let i = 0; i < buttonsCollection.length; i++) {
       moreButtons.push(buttonsCollection[i]);
     }
@@ -80,7 +80,7 @@ export default class Services extends Component {
     }
   };
 
-  handleMouseLeave = () => {
+  handleMouseLeave() {
     for (let i = 0; i < buttonsCollection.length; i++) {
       if (moreButtons[i].classList.contains('hide')) {
         moreButtons[i].classList.remove('hide');

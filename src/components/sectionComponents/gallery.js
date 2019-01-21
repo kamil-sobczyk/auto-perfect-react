@@ -150,7 +150,7 @@ const images = [
 ];
 
 export default class Gallery extends Component {
-  componentDidMount = () => {
+  componentDidMount() {
     const thumbsList = document.getElementById('thumbsList');
     const allLIs = thumbsList.getElementsByTagName('li');
     const allImages = thumbsList.getElementsByTagName('img');

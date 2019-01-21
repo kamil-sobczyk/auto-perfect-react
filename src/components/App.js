@@ -9,7 +9,7 @@ export default class App extends Component {
     section: 'Usługi'
   };
 
-  handlechange = section => {
+  handlechange(section) {
     this.setState({ section: section });
   };
 
