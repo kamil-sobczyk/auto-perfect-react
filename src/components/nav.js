@@ -8,12 +8,12 @@ class Nav extends Component {
     this.state = {
       activeIndex: 1
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   sections = ["O nas", "Usługi", "Galeria", "Jak dojadę?", "Kontakt"];
 
   handleClick = i => {
-    return () => {
       this.sections.forEach((e, index) => {
         if (index === i) {
           this.setState({ activeIndex: i }, this.props.change(i));
@@ -22,13 +22,12 @@ class Nav extends Component {
       document
         .getElementsByClassName("navbar-collapse")[0]
         .classList.remove("show");
-    };
   };
 
   render() {
     const nav = this.sections.map((e, i) => {
       return (
-        <li className="nav-item" key={i} onClick={this.handleClick(i)}>
+        <li className="nav-item" key={i} onClick={this.handleClick.bind(this, i)}>
           <a
             className={
               "nav-link " + (this.state.activeIndex === i ? "active" : "")
