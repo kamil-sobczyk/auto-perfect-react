@@ -1,14 +1,14 @@
 form {
-    width: 50%;
-    text-align: center;
-    label {
-        margin-bottom: 0.5em;
-        font-size: 1em;
-    }
+  width: 50%;
+  text-align: center;
+  label {
+    margin-bottom: 0.5em;
+    font-size: 1em;
+  }
 }
 
-@media(max-width: 768px) {
-    form {
-        width: 100%
-    }
+@media (max-width: 768px) {
+  form {
+    width: 100%;
+  }
 }

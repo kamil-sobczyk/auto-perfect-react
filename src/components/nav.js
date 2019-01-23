@@ -6,39 +6,33 @@ export default class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      section: 1
+      activeIndex: 1
     };
   }
 
   sections = ["O nas", "Usługi", "Galeria", "Jak dojadę?", "Kontakt"];
 
   handleClick = i => {
-    this.sections.forEach((e, index) => {
-      if (index === i) {
-        this.setState({ secion: i });
-      }
-    });
-    document
-      .getElementsByClassName("navbar-collapse")[0]
-      .classList.remove("show");
-   
-    this.props.change(this.sections[i]);
+    return () => {
+      this.sections.forEach((e, index) => {
+        if (index === i) {
+          this.setState({ secion: i });
+        }
+      });
+      document
+        .getElementsByClassName("navbar-collapse")[0]
+        .classList.remove("show");
+     
+      this.props.change(this.sections[i]);
+    }
+    
   };
 
   render() {
     const nav = this.sections.map((e, i) => {
-      if (this.state.section === i)
         return (
-          <li className="nav-item" key={i} onClick={() => this.handleClick(i)}>
-            <a className={"nav-link active"} href="#">
-              {this.sections[i]}
-            </a>
-          </li>
-        );
-      else
-        return (
-          <li className="nav-item" key={i} onClick={() => this.handleClick(i)}>
-            <a className="nav-link" href="#">
+          <li className="nav-item" key={i} onClick={this.handleClick(i)}>
+            <a className={"nav-link " + (this.state.activeIndex === i ? "active" : "") } href="#">
               {this.sections[i]}
             </a>
           </li>

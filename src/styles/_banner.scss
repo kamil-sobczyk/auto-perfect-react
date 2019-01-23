@@ -1,37 +1,36 @@
 @keyframes slideInRight {
-    from {
-      margin-left: 100%;
-      width: 300%; 
-    }
-    to {
-      margin-left: 0%;
-      width: 100%;
-    }
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 
 @keyframes slideInLeft {
-    from {
-      margin-right: 100%;
-    
-    }
-    to {
-      margin-right: 0%;
-    }
+  from {
+    margin-right: 100%;
+  }
+  to {
+    margin-right: 0%;
+  }
 }
 
 .banner-box {
-    margin-top: 4.6em;
-    .banner {
-        display: inline-block;
-        text-align: center;
-        img {
-            height: 50%;
-            animation-duration: 2s;
-            animation-name: slideInLeft;
-        }
-        span {
-            animation-duration: 2s;
-            animation-name: slideInRight;
-        }
+  margin-top: 4.6em;
+  .banner {
+    display: inline-block;
+    text-align: center;
+    img {
+      height: 50%;
+      animation-duration: 2s;
+      animation-name: slideInLeft;
     }
+    span {
+      animation-duration: 2s;
+      animation-name: slideInRight;
+    }
+  }
 }
