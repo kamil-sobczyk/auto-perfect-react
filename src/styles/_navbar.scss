@@ -1,5 +1,8 @@
 .navbar {
   background: rgba(0, 128, 255, 0.7);
+  .nav-link {
+    cursor: pointer;
+  }
 }
 
 @media mobile and (max-width: 1239px) {
@@ -12,17 +15,9 @@
     padding: 0 20px 0 0;
   }
 
-  .navbar {
-    background: none;
-  }
-
   .mr-auto {
     background: rgba(255, 255, 255, 0.7);
     width: 70px;
     border-radius: 0 0 5px 5px;
-  }
-
-  .nav-link {
-    color: black !important;
   }
 }

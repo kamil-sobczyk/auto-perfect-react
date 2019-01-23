@@ -149,20 +149,15 @@ const images = [
   }
 ];
 
-export default class Gallery extends Component {
+class Gallery extends Component {
   componentDidMount() {
     const thumbsList = document.getElementById('thumbsList');
-    const allLIs = thumbsList.getElementsByTagName('li');
     const allImages = thumbsList.getElementsByTagName('img');
 
     const TheLightBox = document.getElementById('lightBox');
     const ThelightBoxImage = document.getElementById('lightBoxImage');
 
-    const prevImg = document.getElementById('prevImg');
-    const nextImg = document.getElementById('nextImg');
-
-    const numberOfImages = allLIs.length;
-    const currentImage = counter;
+    const numberOfImages = thumbsList.getElementsByTagName('li').length;
 
     let counter = 0;
     const nav = document.getElementsByTagName('nav');
@@ -219,7 +214,7 @@ export default class Gallery extends Component {
 
     const nextImage = () => {
       counter++;
-      if (counter == numberOfImages) {
+      if (counter === numberOfImages) {
         counter = 0;
       }
       loadImageInLightBox(allImages[counter].getAttribute('src'));
@@ -282,3 +277,5 @@ export default class Gallery extends Component {
     );
   }
 }
+
+export default Gallery;

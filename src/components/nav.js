@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import menuButton from "../assets/generic/home.png";
 
-export default class Nav extends Component {
+class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,14 +16,12 @@ export default class Nav extends Component {
     return () => {
       this.sections.forEach((e, index) => {
         if (index === i) {
-          this.setState({ activeIndex: i });
+          this.setState({ activeIndex: i }, this.props.change(i));
         }
       });
       document
         .getElementsByClassName("navbar-collapse")[0]
         .classList.remove("show");
-
-      this.props.change(this.sections[i]);
     };
   };
 
@@ -35,7 +33,6 @@ export default class Nav extends Component {
             className={
               "nav-link " + (this.state.activeIndex === i ? "active" : "")
             }
-            href="#"
           >
             {this.sections[i]}
           </a>
@@ -64,3 +61,5 @@ export default class Nav extends Component {
     );
   }
 }
+
+export default Nav;

@@ -62,7 +62,7 @@ const services = [
 const buttonsCollection = document.getElementsByClassName('more');
 let moreButtons = [];
 
-export default class Services extends Component {
+class Services extends Component {
 
   handleClickAndMouseEnter(figure) {
     for (let i = 0; i < buttonsCollection.length; i++) {
@@ -119,3 +119,5 @@ export default class Services extends Component {
     );
   }
 }
+
+export default Services;
