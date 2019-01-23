@@ -7,7 +7,7 @@ import FormContainer from "./sectionComponents/formContainer";
 
 class SectionBuild {
   static build(data) {
-    switch (data.source) {
+    switch (data.name) {
       case "O nas":
         return <About />;
       case "Usługi":

@@ -2,15 +2,15 @@ import React, { Component } from "react";
 
 import menuButton from "../assets/generic/home.png";
 
+import sections from './data/sections';
+
 class Nav extends Component {
   state = {
     activeIndex: 1
   };
 
-  sections = ["O nas", "Usługi", "Galeria", "Jak dojadę?", "Kontakt"];
-
   handleClick = i => {
-    this.sections.forEach((e, index) => {
+    sections.forEach((e, index) => {
       if (index === i) {
         this.setState({ activeIndex: i }, this.props.change(i));
       }
@@ -21,7 +21,7 @@ class Nav extends Component {
   };
 
   render() {
-    const nav = this.sections.map((e, i) => {
+    const nav = sections.map((e, i) => {
       return (
         <li
           className="nav-item"
@@ -33,7 +33,7 @@ class Nav extends Component {
               "nav-link " + (this.state.activeIndex === i ? "active" : "")
             }
           >
-            {this.sections[i]}
+            {sections[i].name}
           </a>
         </li>
       );

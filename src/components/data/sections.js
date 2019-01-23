@@ -1,18 +1,18 @@
 const sections = [
     {
-      source: "O nas"
+      name: "O nas"
     },
     {
-      source: "Usługi"
+      name: "Usługi"
     },
     {
-      source: "Galeria"
+      name: "Galeria"
     },
     {
-      source: "Jak dojadę?"
+      name: "Jak dojadę?"
     },
     {
-      source: "Kontakt"
+      name: "Kontakt"
     }
   ];
 
