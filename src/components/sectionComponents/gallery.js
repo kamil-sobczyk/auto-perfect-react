@@ -4,6 +4,7 @@ import Header from "./header";
 import images from "../data/galleryImages";
 
 class Gallery extends Component {
+  
   componentDidMount() {
     const thumbsList = document.getElementById("thumbsList");
     const allImages = document
