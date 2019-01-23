@@ -6,7 +6,9 @@ import images from "../data/galleryImages";
 class Gallery extends Component {
   componentDidMount() {
     const thumbsList = document.getElementById("thumbsList");
-    const allImages = thumbsList.getElementsByTagName("img");
+    const allImages = document
+      .getElementById("thumbsList")
+      .getElementsByTagName("img");
 
     const TheLightBox = document.getElementById("lightBox");
     const ThelightBoxImage = document.getElementById("lightBoxImage");
