@@ -16,27 +16,31 @@ export default class Nav extends Component {
     return () => {
       this.sections.forEach((e, index) => {
         if (index === i) {
-          this.setState({ secion: i });
+          this.setState({ activeIndex: i });
         }
       });
       document
         .getElementsByClassName("navbar-collapse")[0]
         .classList.remove("show");
-     
+
       this.props.change(this.sections[i]);
-    }
-    
+    };
   };
 
   render() {
     const nav = this.sections.map((e, i) => {
-        return (
-          <li className="nav-item" key={i} onClick={this.handleClick(i)}>
-            <a className={"nav-link " + (this.state.activeIndex === i ? "active" : "") } href="#">
-              {this.sections[i]}
-            </a>
-          </li>
-        );
+      return (
+        <li className="nav-item" key={i} onClick={this.handleClick(i)}>
+          <a
+            className={
+              "nav-link " + (this.state.activeIndex === i ? "active" : "")
+            }
+            href="#"
+          >
+            {this.sections[i]}
+          </a>
+        </li>
+      );
     });
     return (
       <header>
