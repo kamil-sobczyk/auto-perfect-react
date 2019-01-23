@@ -3,31 +3,31 @@ import React, { Component } from "react";
 import menuButton from "../assets/generic/home.png";
 
 class Nav extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeIndex: 1
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+  state = {
+    activeIndex: 1
+  };
 
   sections = ["O nas", "Usługi", "Galeria", "Jak dojadę?", "Kontakt"];
 
   handleClick = i => {
-      this.sections.forEach((e, index) => {
-        if (index === i) {
-          this.setState({ activeIndex: i }, this.props.change(i));
-        }
-      });
-      document
-        .getElementsByClassName("navbar-collapse")[0]
-        .classList.remove("show");
+    this.sections.forEach((e, index) => {
+      if (index === i) {
+        this.setState({ activeIndex: i }, this.props.change(i));
+      }
+    });
+    document
+      .getElementsByClassName("navbar-collapse")[0]
+      .classList.remove("show");
   };
 
   render() {
     const nav = this.sections.map((e, i) => {
       return (
-        <li className="nav-item" key={i} onClick={this.handleClick.bind(this, i)}>
+        <li
+          className="nav-item"
+          key={i}
+          onClick={this.handleClick.bind(this, i)}
+        >
           <a
             className={
               "nav-link " + (this.state.activeIndex === i ? "active" : "")
