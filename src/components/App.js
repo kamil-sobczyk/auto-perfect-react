@@ -4,23 +4,7 @@ import Banner from "./banner";
 import SectionBuild from "./section";
 import Footer from "./footer";
 
-const sections = [
-  {
-    source: "O nas"
-  },
-  {
-    source: "Usługi"
-  },
-  {
-    source: "Galeria"
-  },
-  {
-    source: "Jak dojadę?"
-  },
-  {
-    source: "Kontakt"
-  }
-];
+import sections from "../components/data/sections";
 
 const Section = sections.map(item => SectionBuild.build(item));
 
@@ -30,7 +14,7 @@ class App extends Component {
   };
 
   handleChange = section => {
-    this.setState({ section }, ()=> {});
+    this.setState({ section });
   };
 
   render() {
