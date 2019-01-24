@@ -6,10 +6,6 @@ import NavButton from "./navButton";
 import sections from "./data/sections";
 
 class Nav extends Component {
-  state = {
-    activeIndex: 1
-  };
-
   handleClick = i => {
     sections.forEach(e => {
       e.active = false;
@@ -49,7 +45,9 @@ class Nav extends Component {
             <img src={menuButton} alt="MENU" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">{nav}</ul>
+            <ul className="navbar-nav mr-auto">
+              {nav}
+            </ul>
           </div>
         </nav>
       </header>

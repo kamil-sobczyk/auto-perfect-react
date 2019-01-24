@@ -50,7 +50,9 @@ class Services extends Component {
     return (
       <div className="container">
         <Header title="Usługi" />
-        <div className="row row-flex">{services}</div>
+        <div className="row row-flex">
+          {services}
+        </div>
       </div>
     );
   }
