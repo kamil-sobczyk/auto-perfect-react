@@ -1,13 +1,39 @@
 import React, { Component } from "react";
 
+const buttonsCollection = document.getElementsByClassName("more");
+let moreButtons = [];
+
 class Service extends Component {
+    handleClickAndMouseEnter(figure) {
+        for (let i = 0; i < buttonsCollection.length; i++) {
+          moreButtons.push(buttonsCollection[i]);
+        }
+    
+        for (let i = 0; i < buttonsCollection.length; i++) {
+          if (i === figure) {
+            moreButtons[i].classList.add("hide");
+          } else {
+            if (moreButtons[i].classList.contains("hide")) {
+              moreButtons[i].classList.remove("hide");
+            }
+          }
+        }
+      }
+    
+      handleMouseLeave() {
+        for (let i = 0; i < buttonsCollection.length; i++) {
+          if (moreButtons[i].classList.contains("hide")) {
+            moreButtons[i].classList.remove("hide");
+          }
+        }
+      }
   render() {
     return (
       <figure
         className="service-img col-md-6"
-        onClick={this.props.handleClickAndMouseEnter}
-        onMouseEnter={this.props.handleClickAndMouseEnter}
-        onMouseLeave={this.props.handleMouseLeave}
+        onClick={this.handleClickAndMouseEnter(this.props.index)}
+        onMouseEnter={this.handleClickAndMouseEnter(this.props.index)}
+        onMouseLeave={this.handleMouseLeave()}
       >
         <img src={this.props.img} alt={this.props.alt} />
         <div className="title">

@@ -8,36 +8,11 @@ const buttonsCollection = document.getElementsByClassName("more");
 let moreButtons = [];
 
 class Services extends Component {
-  handleClickAndMouseEnter(figure) {
-    for (let i = 0; i < buttonsCollection.length; i++) {
-      moreButtons.push(buttonsCollection[i]);
-    }
-
-    for (let i = 0; i < buttonsCollection.length; i++) {
-      if (i === figure) {
-        moreButtons[i].classList.add("hide");
-      } else {
-        if (moreButtons[i].classList.contains("hide")) {
-          moreButtons[i].classList.remove("hide");
-        }
-      }
-    }
-  }
-
-  handleMouseLeave() {
-    for (let i = 0; i < buttonsCollection.length; i++) {
-      if (moreButtons[i].classList.contains("hide")) {
-        moreButtons[i].classList.remove("hide");
-      }
-    }
-  }
-
   render() {
     const services = servicesList.map((e, i) => {
       return (
         <Service
-          handleClickAndMouseEnter={this.handleClickAndMouseEnter(i)}
-          handleMouseLeave={this.handleMouseLeave()}
+          index={i}
           key={i}
           img={e.img}
           alt={e.altImg}
