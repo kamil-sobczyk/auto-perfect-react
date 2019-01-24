@@ -1,4 +1,4 @@
-const services = [
+const servicesList = [
     {
       img: require('../../assets/services/service.jpg'),
       altImg: 'Serwis bieżący',
@@ -57,4 +57,4 @@ const services = [
     }
   ];
 
-  export default services;
+  export default servicesList;

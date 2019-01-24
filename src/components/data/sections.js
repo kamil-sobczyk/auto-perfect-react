@@ -1,18 +1,23 @@
 const sections = [
     {
-      name: "O nas"
+      name: "O nas",
+      active: false
     },
     {
-      name: "Usługi"
+      name: "Usługi",
+      active: true
     },
     {
-      name: "Galeria"
+      name: "Galeria",
+      active: false
     },
     {
-      name: "Jak dojadę?"
+      name: "Jak dojadę?",
+      active: false
     },
     {
-      name: "Kontakt"
+      name: "Kontakt",
+      active: false
     }
   ];
 

@@ -10,11 +10,11 @@ const Section = sections.map(item => SectionBuild.build(item));
 
 class App extends Component {
   state = {
-    section: 1
+    chosenSection: 1
   };
 
-  handleChange = section => {
-    this.setState({ section });
+  handleChange = chosenSection => {
+    this.setState({ chosenSection });
   };
 
   render() {
@@ -22,7 +22,7 @@ class App extends Component {
       <div className="container">
         <Banner />
         <Nav change={this.handleChange} />
-        <div className="section">{Section[this.state.section]}</div>
+        <div className="section">{Section[this.state.chosenSection]}</div>
         <Footer />
       </div>
     );

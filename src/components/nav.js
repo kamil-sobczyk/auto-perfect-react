@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
 import menuButton from "../assets/generic/home.png";
+import NavButton from "./navButton";
 
-import sections from './data/sections';
+import sections from "./data/sections";
 
 class Nav extends Component {
   state = {
@@ -10,11 +11,13 @@ class Nav extends Component {
   };
 
   handleClick = i => {
-    sections.forEach((e, index) => {
-      if (index === i) {
-        this.setState({ activeIndex: i }, this.props.change(i));
-      }
-    });
+    sections.forEach(e => {
+      e.active = false;
+    })
+    sections[i].active = true;
+
+    this.props.change(i);
+    
     document
       .getElementsByClassName("navbar-collapse")[0]
       .classList.remove("show");
@@ -23,19 +26,12 @@ class Nav extends Component {
   render() {
     const nav = sections.map((e, i) => {
       return (
-        <li
-          className="nav-item"
+        <NavButton
+          isActive={e.active}
+          handleClick={this.handleClick.bind(this, i)}
+          index={i}
           key={i}
-          onClick={this.handleClick.bind(this, i)}
-        >
-          <a
-            className={
-              "nav-link " + (this.state.activeIndex === i ? "active" : "")
-            }
-          >
-            {sections[i].name}
-          </a>
-        </li>
+        />
       );
     });
     return (
